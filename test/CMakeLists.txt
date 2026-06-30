@@ -1,8 +1,5 @@
 # test/CMakeLists.txt
-# =============================================================================
-# GTest Setup (shared by unit_tests and the sanitizer trip-wires)
-# =============================================================================
-find_package(GTest CONFIG REQUIRED) # need to add `gtest` in vcpkg.json
+find_package(GTest CONFIG REQUIRED)
 
 add_executable(
   unit_tests
