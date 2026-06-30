@@ -23,10 +23,19 @@ _deps/
 compile_commands.json
 .cache/               # clangd background index
 
+# ----- Generated sources -----
+# Produced at configure time by cmake/version.cmake from version.h.in
+include/*/version.h
+# (mylib_export.h is generated into the build tree, not here — see src/mylib/CMakeLists.txt)
+
+# ----- Library install staging -----
+# Auto-populated by MyLib's POST_BUILD `cmake --install` into the repo root.
+generated_lib/
+
 # ----- Package managers / local config -----
 vcpkg_installed/
 CMakeUserPresets.json
-local_options.cmake
+project_options.local.cmake
 
 # ----- Compiled artifacts -----
 *.o
@@ -45,6 +54,13 @@ local_options.cmake
 *.exp
 *.gch
 *.pch
+
+# ----- Coverage -----
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+coverage/
 
 # ----- IDE / editor (kept project-agnostic) -----
 # .vscode/ is committed (shared config); .idea/ is CLion-local.
